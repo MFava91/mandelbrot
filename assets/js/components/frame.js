@@ -1,6 +1,7 @@
 'use strict';
 
 const $       = global.jQuery;
+const select     = require('select2');
 const storage = require('../storage');
 const utils   = require('../utils');
 const events  = require('../events');
@@ -16,6 +17,7 @@ module.exports = function(element){
     const header       = el.find('> [data-role="header"]');
     const body         = el.find('> [data-role="body"]');
     const toggle       = el.find('[data-action="toggle-sidebar"]');
+    const iframe       = doc.find('[data-role="window"]');
     const sidebar      = body.children('[data-role="sidebar"]');
     const main         = body.children('[data-role="main"]');
     const handle       = body.children('[data-role="frame-resize-handle"]');
@@ -27,6 +29,7 @@ module.exports = function(element){
     let dragOccuring   = false;
     let isInitialClose = false;
     let handleClicks   = 0;
+    let currentTheme   = 'braun';
 
     sidebar.outerWidth(sidebarWidth);
 
@@ -144,11 +147,32 @@ module.exports = function(element){
         storage.set(`frame.sidebar`, width);
     }
 
+    function initThemeSelect() {
+
+        const lsTheme = storage.get(`frame.theme`);
+        if (lsTheme) {
+            currentTheme = lsTheme;
+        }
+        
+        $(".Header-themeSelect").select2({
+            minimumResultsForSearch: Infinity
+        }).on('change', function(event){
+            if (event.target.value && event.target.value != currentTheme) {
+                currentTheme = event.target.value;
+            }
+            storage.set(`frame.theme`, currentTheme);
+        });
+
+        $(".Header-themeSelect").val(currentTheme).trigger('change');
+    }
+
     return {
 
         closeSidebar: closeSidebar,
 
         openSidebar: openSidebar,
+
+        initThemeSelect: initThemeSelect,
 
         startLoad: function(){
             main.addClass('is-loading');

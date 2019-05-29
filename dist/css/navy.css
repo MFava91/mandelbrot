@@ -1586,8 +1586,6 @@ h6 {
     border-right: 1px solid rgba(221, 238, 255, 0.25); }
   [dir="rtl"] .Header-button {
     border-left: 1px solid rgba(221, 238, 255, 0.25); }
-  .Header-button:focus, .Header-button:active {
-    outline: none; }
   .Header-button:hover {
     background-color: rgba(221, 238, 255, 0.05); }
   .Header-button:active {
@@ -1597,6 +1595,19 @@ h6 {
   display: none;
   margin: 0 auto;
   fill: #def; }
+
+.Header-theme {
+  margin: 0 10px 0 auto; }
+  .Header-theme .select2-container {
+    font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+    -webkit-margin-start: -0.25rem;
+            margin-inline-start: -0.25rem;
+    margin-bottom: -1px;
+    min-width: 120px; }
+    [dir="ltr"] .Header-theme .select2-container {
+      margin-left: -0.25rem; }
+    [dir="rtl"] .Header-theme .select2-container {
+      margin-right: -0.25rem; }
 
 .Frame .Header-navToggleIcon--open {
   display: block; }

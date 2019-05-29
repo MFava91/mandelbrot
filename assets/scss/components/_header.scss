@@ -28,7 +28,7 @@
     width: 3rem;
     touch-action: manipulation;
     color: inherit;
-    cursor: pointer;
+    cursor: pointer; 
 
     &:hover {
         background-color: rgba($color-header-content, 0.05);
@@ -44,6 +44,17 @@
         display: none;
         margin: 0 auto;
         fill: $color-header-content;
+    }
+}
+
+.Header-theme {
+    margin: 0 10px 0 auto;
+
+    .select2-container {
+        @include font(caption);
+        @include margin-inline(start, -0.25rem);
+        margin-bottom: -1px;
+        min-width: 120px;
     }
 }
 
