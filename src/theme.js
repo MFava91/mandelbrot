@@ -17,6 +17,8 @@ module.exports = function(options){
         static: {
             mount: 'themes/mandelbrot',
         },
+        enableMultiTheme: false,
+        themes: [],
         version: packageJSON.version,
         favicon: null
     });

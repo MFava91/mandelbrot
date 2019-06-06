@@ -160,6 +160,7 @@ module.exports = function(element){
             if (event.target.value && event.target.value != currentTheme) {
                 currentTheme = event.target.value;
             }
+            document.body.classList = currentTheme;
             storage.set(`frame.theme`, currentTheme);
         });
 
