@@ -1596,17 +1596,54 @@ h6 {
   margin: 0 auto;
   fill: #fde; }
 
-.Header-theme {
+.Header-controllers {
   margin: 0 10px 0 auto; }
-  .Header-theme .select2-container {
+  .Header-controllers .Header-ctr {
+    margin: 0 0 0 12px; }
+  .Header-controllers .Header-rtl {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; }
+    .Header-controllers .Header-rtl .Header-rtlTitle {
+      font-size: 12px;
+      line-height: 22px;
+      margin: 0 10px 0 0; }
+    .Header-controllers .Header-rtl .Header-rtlSwitch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      background-color: #c7c9c8;
+      border-radius: 20px;
+      transition: all 0.3s; }
+      .Header-controllers .Header-rtl .Header-rtlSwitch::after {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: white;
+        top: 1px;
+        left: 1px;
+        transition: all 0.3s; }
+    .Header-controllers .Header-rtl .Header-rtlCheckbox:checked + .Header-rtlSwitch::after {
+      left: 20px; }
+    .Header-controllers .Header-rtl .Header-rtlCheckbox:checked + .Header-rtlSwitch {
+      background-color: #29CC29; }
+    .Header-controllers .Header-rtl .Header-rtlCheckbox {
+      display: none; }
+  .Header-controllers .Header-theme .select2-container {
     font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
     -webkit-margin-start: -0.25rem;
             margin-inline-start: -0.25rem;
     margin-bottom: -1px;
     min-width: 120px; }
-    [dir="ltr"] .Header-theme .select2-container {
+    [dir="ltr"] .Header-controllers .Header-theme .select2-container {
       margin-left: -0.25rem; }
-    [dir="rtl"] .Header-theme .select2-container {
+    [dir="rtl"] .Header-controllers .Header-theme .select2-container {
       margin-right: -0.25rem; }
 
 .Frame .Header-navToggleIcon--open {

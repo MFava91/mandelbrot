@@ -47,10 +47,58 @@
     }
 }
 
-.Header-theme {
+.Header-controllers {
     margin: 0 10px 0 auto;
 
-    .select2-container {
+    .Header-ctr {
+        margin: 0 0 0 12px;;
+    }
+
+    .Header-rtl {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        .Header-rtlTitle {
+            font-size: 12px;
+            line-height: 22px;
+            margin: 0 10px 0 0;
+        }
+
+        .Header-rtlSwitch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #c7c9c8;
+            border-radius: 20px;
+            transition: all 0.3s;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                border-radius:50%;
+                background-color: white;
+                top: 1px;
+                left: 1px;
+                transition: all 0.3s;
+            }
+        }
+        
+        .Header-rtlCheckbox:checked + .Header-rtlSwitch::after {
+            left : 20px;
+        }
+        .Header-rtlCheckbox:checked + .Header-rtlSwitch {
+            background-color: #29CC29;
+        }
+        .Header-rtlCheckbox {
+            display : none;
+        }
+    }
+
+    .Header-theme .select2-container {
         @include font(caption);
         @include margin-inline(start, -0.25rem);
         margin-bottom: -1px;

@@ -1,7 +1,7 @@
 'use strict';
 
 const $       = global.jQuery;
-const select     = require('select2');
+const select  = require('select2');
 const storage = require('../storage');
 const utils   = require('../utils');
 const events  = require('../events');
@@ -167,6 +167,19 @@ module.exports = function(element){
         $(".Header-themeSelect").val(currentTheme).trigger('change');
     }
 
+    function initRtlSwitch() {
+
+        const rtlEnabled = storage.get(`frame.rtl`);
+        const rtlCheckbox = document.getElementsByClassName('Header-rtlCheckbox')[0];
+        if (rtlEnabled) {
+            rtlCheckbox.checked = rtlEnabled;
+        }
+        
+        rtlCheckbox.addEventListener('change', function(event) {
+            storage.set(`frame.rtl`, event.target.checked)
+        })
+    }
+
     return {
 
         closeSidebar: closeSidebar,
@@ -174,6 +187,8 @@ module.exports = function(element){
         openSidebar: openSidebar,
 
         initThemeSelect: initThemeSelect,
+
+        initRtlSwitch: initRtlSwitch,
 
         startLoad: function(){
             main.addClass('is-loading');

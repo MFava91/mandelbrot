@@ -19,6 +19,7 @@ module.exports = function(options){
         },
         enableMultiTheme: false,
         themes: [],
+        enableRtlSwitcher: false,
         version: packageJSON.version,
         favicon: null
     });

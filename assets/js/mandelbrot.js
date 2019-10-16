@@ -42,6 +42,7 @@ events.on('main-content-loaded', loadPen);
 
 function loadPen(){
     frame.initThemeSelect();
+    frame.initRtlSwitch();
     setTimeout(function(){
         pens = $.map($('[data-behaviour="pen"]'), p => new Pen(p));
     }, 1);

@@ -4,13 +4,22 @@
         {% include 'icons/open-nav.svg' %}
     </button>
     <a href="{{ path('/') }}" class="Header-title" data-pjax>{{ frctl.get('project.title') | default('Component Library') }}</a>
-    {% if frctl.theme.get('enableMultiTheme') %}
-        <div class="Header-theme">
-            <select class="Header-themeSelect">
-                {% for theme in frctl.theme.get('themes') %}
-                    <option value="{{theme}}">{{theme}}</option>
-                {% endfor %}
-            </select>
-        </div>
-    {% endif %}
+    <div class="Header-controllers">
+        {% if frctl.theme.get('enableRtlSwitcher') %}
+            <div class="Header-ctr Header-rtl">
+                <span class="Header-rtlTitle">RTL: </span>
+                <input type="checkbox" id="toggle" class="Header-rtlCheckbox" />  
+                <label for="toggle" class="Header-rtlSwitch"></label>
+            </div>
+        {% endif %}
+        {% if frctl.theme.get('enableMultiTheme') %}
+            <div class="Header-ctr Header-theme">
+                <select class="Header-themeSelect">
+                    {% for theme in frctl.theme.get('themes') %}
+                        <option value="{{theme}}">{{theme}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endif %}
+    </div>
 </div>
